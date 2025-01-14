@@ -1,0 +1,87 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+  
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent' 
+    foreground = 'p:pink'
+    template = "{{ .Path }} "
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = 'p:lavender'
+    template = "{{ .HEAD }} "
+
+    [blocks.segments.properties]
+      branch_icon = "\ue725 "
+      cherry_pick_icon = "\ue29b "
+      commit_icon = "\uF417 "
+      fetch_status = false
+      fetch_upstream_icon = false
+      merge_icon = "\ue727 "
+      no_commits_icon = "\uf0c3 "
+      rebase_icon = "\ue728 "
+      revert_icon = "\uf0e2 "
+      tag_icon = "\uf412 "
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground_templates = [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}p:blue{{end}}",
+    ]
+    template = "❯"
+  
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:closer'
+    template = '{{ .FormattedMs }}'
+
+    [blocks.segments.properties]
+      threshold = 5000
+  
+[transient_prompt]
+  # newline = true
+  background = 'transparent'
+  foreground_templates = [
+    "{{if gt .Code 0}}red{{end}}",
+    "{{if eq .Code 0}}p:blue{{end}}",
+  ]
+  template = "❯ " 
+
+[secondary_prompt]
+  foreground = 'p:blue'
+  background = 'transparent'
+  template = '❯❯ '
+
+[palette]
+os = "#ACB0BE"
+closer = "p:os"
+pink = "#F5C2E7"
+lavender = "#B4BEFE"
+blue = "#89B4FA"

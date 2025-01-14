@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+alias supgrate="brew upgrade && sudo apt update && sudo apt upgrade -y && flatpak update -y && sudo snap refresh"
+
+alias asc="nvim $HOME/.aliases"
+alias bashc="nvim $HOME/.bashrc"
+alias zshc="nvim $HOME/.zshrc"
+alias nvimc="nvim $HOME/.config/nvim/lua/nzp/"
+alias i3c="nvim $HOME/.config/i3/"
+alias ompc="nvim $HOME/.config/ohmyposh/main.toml"
+alias wezc="nvim $HOME/.config/wezterm/wezterm.lua"
+alias xmapc="nvim $HOME/.xmodmaprc"
+alias tmc="nvim $HOME/.config/tmux/tmux.conf"
+
+alias ff="fastfetch"
+
+alias hdd="cd /mnt/HDD/nino"
+alias bayoa="cd /mnt/HDD/nino/Documents/compsci/internship/bayoa"
+
+alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias lg='lazygit'

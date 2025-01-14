@@ -1,0 +1,4 @@
+! setxkbmap -layout us (to reset xmodmap)
+remove mod1 = Alt_L
+keycode 64 = Return NoSymbol Return
+add mod1 = Alt_L
