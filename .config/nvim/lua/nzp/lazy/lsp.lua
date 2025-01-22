@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
+    "stevearc/conform.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
@@ -11,6 +12,11 @@ return {
     "j-hui/fidget.nvim",
   },
   config = function()
+    -- setup conform by ft
+    require("conform").setup({
+      formatters_by_ft = {
+      }
+    })
     require("fidget").setup()
     require("mason").setup()
 
