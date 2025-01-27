@@ -1,9 +1,11 @@
 # export LC_ALL=en_US.UTF-8
-# export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin/"
-# export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/home/linuxbrew/.linuxbrew/bin/"
+
+source $HOME/.profile
 
 # aliases
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
+
+bindkey -s ^f "tmux-sessionizer\n"
 
 # history
 HISTSIZE=10000
@@ -24,8 +26,6 @@ setopt hist_find_no_dups
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export XDG_CONFIG_HOME="$HOME/.config"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)

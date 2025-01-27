@@ -45,3 +45,5 @@ alias rm='rm -i'
 
 alias lg='lazygit'
 alias zbench='~/zsh-bench/zsh-bench'
+
+alias cl='clear'
