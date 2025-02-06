@@ -206,7 +206,7 @@ exec --no-startup-id flatpak run org.flameshot.Flameshot
 exec noisetorch -i
 
 # force alt-key to Enter
-exec xmodmap "~/.xmodmaprc"
+exec_always xmodmap "~/.xmodmaprc"
 
 exec feh --bg-scale "/home/nino/Downloads/disktop.jpg"
 

@@ -7,8 +7,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/home/linuxbrew/.linuxbrew/bin/"
 
-export EDITOR=nvim
-
+export EDITOR=/home/linuxbrew/.linuxbrew/bin//nvim
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
