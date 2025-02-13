@@ -54,7 +54,7 @@ tiling_drag modifier titlebar
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -183,7 +183,7 @@ bar {
 exec xinput set-prop "SYNA7DAB:00 06CB:CD40 Touchpad" "libinput Tapping Enabled" 1
 
 bindcode $mod+61 exec bluetoothctl connect 68:59:32:ce:dc:7a
-bindcode $mod+Shift+61 exec bluetoothctl disconnect 
+bindcode $mod+Shift+61 exec bluetoothctl disconnect
 
 # bind brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -205,13 +205,10 @@ exec --no-startup-id flatpak run com.discordapp.Discord
 exec --no-startup-id flatpak run org.flameshot.Flameshot
 exec noisetorch -i
 
-# force alt-key to Enter
-exec_always xmodmap "~/.xmodmaprc"
-
-exec feh --bg-scale "/home/nino/Downloads/disktop.jpg"
-
 # window assignment
 assign [class="discord"] $ws10
+
+exec feh --bg-fill -g 1362x764+0+0 /home/nino/Desktop/sakadays.jpeg
 
 # TODO: binding for auto resize instagram floating window and move position to lower-right (xwininfo)
 # https://www.reddit.com/r/i3wm/comments/o7ts94/positioning_a_floating_window/

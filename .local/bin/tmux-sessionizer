@@ -4,7 +4,7 @@ if [[ $# -eq 1 ]]; then
   selected=$1
 else
   # insert dirs with projects
-  selected=$(find ~/dotfiles ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find ~/dotfiles ~/ ~/Documents -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

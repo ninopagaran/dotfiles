@@ -52,5 +52,15 @@ zinit wait lucid for \
   zdharma-continuum/fast-syntax-highlighting \
   blockf \
   zsh-users/zsh-completions \
-  atload"!_zsh_autosuggest_start" \
-  zsh-users/zsh-autosuggestions
+  atload"_zsh_autosuggest_start; \
+  ZSH_AUTOSUGGEST_STRATEGY=(history completion) \
+    ZSH_AUTOSUGGEST_MANUAL_REBIND=0 \
+    ZSH_AUTOSUGGEST_HISTORY_IGNORE=' *' \
+    bindkey '^p' history-search-backward; \
+    bindkey '^o' history-search-forward; \
+    bindkey '^n' autosuggest-accept; \
+    bindkey '^e' autosuggest-execute; \
+    bindkey '^a' autosuggest-toggle; \
+    bindkey '^s' autosuggest-clear" \
+    zsh-users/zsh-autosuggestions
+
