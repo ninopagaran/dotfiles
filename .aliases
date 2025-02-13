@@ -10,6 +10,8 @@ alias ompc="nvim $HOME/.config/ohmyposh/main.toml"
 alias wezc="nvim $HOME/.config/wezterm/wezterm.lua"
 alias xmapc="nvim $HOME/.xmodmaprc"
 alias tmc="nvim $HOME/.config/tmux/tmux.conf"
+alias ghostc="nvim $HOME/.config/ghostty/config"
+
 alias dotfiles="cd $HOME/dotfiles"
 
 alias ff="fastfetch"
