@@ -1,6 +1,6 @@
 ! setxkbmap -layout us (to reset xmodmap)
 remove mod1 = Alt_L
-keycode 64 = KP_Enter
+keycode 64 = Return NoSymbol Return
 remove lock = Caps_Lock
 remove control = Control_L
 keysym Control_L = Caps_Lock

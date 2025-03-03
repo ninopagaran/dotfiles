@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-alias supgrate="brew upgrade && sudo apt update && sudo apt upgrade -y && flatpak update -y && sudo snap refresh"
+alias supgrate="sudo apt upgrade -y && sudo apt update && sudo snap refresh && brew upgrade && flatpak update -y"
 
 alias asc="nvim $HOME/.aliases"
 alias bashc="nvim $HOME/.bashrc"
@@ -45,8 +45,10 @@ alias l='ls -CF'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+alias cl='clear'
 
 alias lg='lazygit'
+
 alias zbench='~/zsh-bench/zsh-bench'
 
-alias cl='clear'
+alias tls='tmux ls'

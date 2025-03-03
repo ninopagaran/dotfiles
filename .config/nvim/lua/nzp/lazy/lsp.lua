@@ -27,9 +27,9 @@ return {
       require("cmp_nvim_lsp").default_capabilities()
     )
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", },
+      ensure_installed = { "lua_ls", "clangd" },
       handlers = {
-        function(server_name)  -- default handler (optional)
+        function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
           }
@@ -66,6 +66,7 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(),
       }),
       sources = cmp.config.sources({
+        { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
       }, {
