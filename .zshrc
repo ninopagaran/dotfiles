@@ -38,6 +38,8 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
+export MANPAGER='nvim +Man!'
+
 source <(oh-my-posh init zsh --config $HOME/.config/ohmyposh/main.toml)
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
