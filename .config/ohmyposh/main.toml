@@ -4,10 +4,13 @@ final_space = true
 
 [palette]
   blue = '#89B4FA'
+  cyan = '#7CCFFE'
+  green = '#9FCE6B'
+  yellow = '#ffc777'
   closer = 'p:os'
   lavender = '#B4BEFE'
   os = '#ACB0BE'
-  pink = '#F5C2E7'
+  pink = '#ff4499'
 
 [secondary_prompt]
   template = '❯❯ '
@@ -17,7 +20,7 @@ final_space = true
 [transient_prompt]
   template = '❯ '
   background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}p:blue{{end}}']
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}p:cyan{{end}}']
 
 [[blocks]]
   type = 'prompt'
@@ -25,8 +28,14 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '{{ .Path }} '
+    template = '   '
     foreground = 'p:pink'
+    type = 'text'
+    style = 'plain'
+
+  [[blocks.segments]]
+    template = '{{ .Path }} '
+    foreground = 'p:blue'
     background = 'transparent'
     type = 'path'
     style = 'plain'
@@ -36,8 +45,8 @@ final_space = true
       style = 'full'
 
   [[blocks.segments]]
-    template = '{{ .HEAD }} '
-    foreground = 'p:lavender'
+    template = '({{ .HEAD }}) '
+    foreground = 'p:green'
     type = 'git'
     style = 'plain'
 
@@ -57,13 +66,13 @@ final_space = true
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
-  newline = true
+  # newline = true
 
   [[blocks.segments]]
-    template = '❯'
+    template = ' '
     type = 'text'
     style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}p:blue{{end}}']
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}p:yellow{{end}}']
 
     [blocks.segments.properties]
       cache_duration = 'none'

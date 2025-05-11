@@ -1,7 +1,10 @@
 return {
+  -- ====================================================================
   "folke/trouble.nvim",
   config = function()
-    require("trouble").setup()
+    require("trouble").setup({
+      auto_preview = false
+    })
 
     vim.keymap.set("n", "<leader>tt", function()
       require("trouble").toggle('diagnostics')

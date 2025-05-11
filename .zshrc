@@ -59,8 +59,8 @@ zinit wait lucid for \
     ZSH_AUTOSUGGEST_MANUAL_REBIND=0 \
     ZSH_AUTOSUGGEST_HISTORY_IGNORE=' *' \
     bindkey '^p' history-search-backward; \
-    bindkey '^o' history-search-forward; \
-    bindkey '^n' autosuggest-accept; \
+    bindkey '^n' history-search-forward; \
+    bindkey '^k' autosuggest-accept; \
     bindkey '^e' autosuggest-execute; \
     bindkey '^a' autosuggest-toggle; \
     bindkey '^s' autosuggest-clear" \

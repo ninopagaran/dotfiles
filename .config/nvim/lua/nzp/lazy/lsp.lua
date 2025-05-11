@@ -2,8 +2,8 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "stevearc/conform.nvim",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
@@ -27,11 +27,30 @@ return {
       require("cmp_nvim_lsp").default_capabilities()
     )
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "clangd" },
+      ensure_installed = { "lua_ls", "clangd", "ts_ls", "denols" },
       handlers = {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
+          }
+        end,
+        ["denols"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.denols.setup {
+            root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
+          }
+        end,
+        ["ts_ls"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.ts_ls.setup {
+            on_attach = function(client)
+              if lspconfig.util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) then
+                if client.name == "ts_ls" then
+                  client.stop()
+                  return
+                end
+              end
+            end,
           }
         end,
         ["lua_ls"] = function()
@@ -76,6 +95,7 @@ return {
 
     vim.diagnostic.config({
       -- update_in_insert = true,
+      severity_sort = true,
       float = {
         focusable = false,
         style = "minimal",
