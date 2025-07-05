@@ -35,3 +35,6 @@ vim.opt.colorcolumn = "80"
 -- vim.opt.showmode = false
 
 vim.opt.pumheight = 10
+
+vim.opt.splitbelow = true
+vim.opt.splitright = true

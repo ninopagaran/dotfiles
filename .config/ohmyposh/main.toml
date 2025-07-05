@@ -28,7 +28,7 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '   '
+    template = '  '
     foreground = 'p:pink'
     type = 'text'
     style = 'plain'
@@ -69,7 +69,7 @@ final_space = true
   # newline = true
 
   [[blocks.segments]]
-    template = ' '
+    template = '❯'
     type = 'text'
     style = 'plain'
     foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}p:yellow{{end}}']

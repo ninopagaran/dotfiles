@@ -21,7 +21,6 @@ vim.keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true })
 vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true })
 
 -- save in insert mode
-vim.keymap.set("i", "<C-s>", "<CMD>:w<CR><esc>")
 vim.keymap.set("n", "<C-s>", "<CMD>:w<CR><esc>")
 
 -- greatest remap ever (paste without losing copied text)
@@ -38,7 +37,13 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set({ "n", "v" }, "<leader>f", vim.lsp.buf.format)
+
+-- vim.keymap.set({ "n", "v" }, "<leader>f", function()
+-- 	require("conform").format({ async = true, lsp_format = "fallback", range = range })
+-- end)
+
+-- Press `<Leader>=` to indent the whole file and return to cursor
+vim.keymap.set("n", "<Leader>=", "magg=G`a", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
@@ -50,5 +55,5 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- )
 
 vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
+	vim.cmd("so")
 end)

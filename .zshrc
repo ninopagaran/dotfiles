@@ -6,6 +6,7 @@ source $HOME/.profile
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^w "tmux attach\n"
 
 # history
 HISTSIZE=10000
@@ -23,9 +24,9 @@ setopt hist_find_no_dups
 # enable vi mode
 # source $ZDOTDIR/zsh-vim-mode
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -60,7 +61,7 @@ zinit wait lucid for \
     ZSH_AUTOSUGGEST_HISTORY_IGNORE=' *' \
     bindkey '^p' history-search-backward; \
     bindkey '^n' history-search-forward; \
-    bindkey '^k' autosuggest-accept; \
+    bindkey '^o' autosuggest-accept; \
     bindkey '^e' autosuggest-execute; \
     bindkey '^a' autosuggest-toggle; \
     bindkey '^s' autosuggest-clear" \
