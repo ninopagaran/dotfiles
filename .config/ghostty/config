@@ -1,0 +1,14 @@
+theme = tokyonight
+
+shell-integration-features = no-cursor
+cursor-style-blink = false
+
+window-decoration = false
+window-save-state = always
+window-padding-x = 2,0
+
+# run tmux at startup
+# command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
+
+mouse-hide-while-typing = true
+
