@@ -11,6 +11,7 @@ alias wezc="nvim $HOME/.config/wezterm/wezterm.lua"
 alias xmapc="nvim $HOME/.xmodmaprc"
 alias tmc="nvim $HOME/.config/tmux/tmux.conf"
 alias ghostc="nvim $HOME/.config/ghostty/config"
+alias swayc="nvim $HOME/.config/sway/config"
 
 alias dotfiles="cd $HOME/dotfiles"
 
