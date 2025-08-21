@@ -1,4 +1,5 @@
 # export LC_ALL=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
 
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
@@ -18,7 +19,7 @@ source $HOME/.profile
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
 bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^w "tmux attach\n"
+bindkey -s ^w "tmux attach\ntmux\n"
 
 # history
 HISTSIZE=10000

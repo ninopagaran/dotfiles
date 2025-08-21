@@ -1,4 +1,4 @@
-theme = tokyonight
+theme = Monokai Remastered
 
 shell-integration-features = no-cursor
 cursor-style-blink = false

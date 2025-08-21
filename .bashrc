@@ -116,5 +116,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export LC_ALL=C
+# export LC_ALL=C
 export SHELL=/bin/zsh

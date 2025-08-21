@@ -10,7 +10,7 @@ exec nm-applet
 exec flameshot
 exec webcord
 
-assign [app_id="WebCord"] 10
+assign [app_id="WebCord"] 9
 
 ### Variables
 #
@@ -215,6 +215,12 @@ bindsym $mod+r mode "resize"
 #
 # Utilities:
 #
+    # bind xf86audio
+    bindsym --locked XF86AudioPlay exec playerctl play-pause
+    bindsym --locked XF86AudioPause exec playerctl pause
+    bindsym --locked XF86AudioNext exec playerctl next
+    bindsym --locked XF86AudioPrev exec playerctl previous
+
     # Special keys to adjust volume via PulseAudio
     bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
