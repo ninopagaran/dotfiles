@@ -1,5 +1,4 @@
 # export LC_ALL=en_US.UTF-8
-# export LC_ALL=en_US.UTF-8
 
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
