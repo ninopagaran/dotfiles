@@ -59,3 +59,6 @@ bg
 screen
 cron
 crontab
+exiftool
+binwalk
+
