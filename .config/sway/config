@@ -9,6 +9,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 exec nm-applet
 exec flameshot
 exec discord
+exec brave --args --app-auto-launched --restore-last-session
 
 assign [app_id="discord"] 9
 
@@ -77,9 +78,12 @@ font pango: Ubuntu Nerd Font 10
   }
 #
   input type:keyboard {
-    xkb_options ctrl:swapcaps
+    # xkb_options ctrl:swapcaps
     # xkb_layout real-programmers-dvorak
+    # xkb_layout "my-keyboard"
+    # xkb_file "~/.config/xkb/symbols/myk.xkb"
   }
+
 #
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
@@ -227,7 +231,12 @@ bindsym $mod+r mode "resize"
     bindsym Print exec flameshot gui
 
 for_window [class="^.*"] border pixel 2
-for_window [class="^.*"] client.focused       #77dd77 #285577 #ffffff #2e9ef4 #285577
+# for_window [class="^.*"] client.focused       #77dd77 #285577 #ffffff #2e9ef4 #285577
+
+default_border pixel 2
+default_floating_border pixel 2
+client.focused       #77dd77 #285577 #ffffff #2e9ef4 #285577
+# smart_borders off
 
 #
 # Status Bar:
@@ -251,3 +260,5 @@ include /etc/sway/config.d/*
 
 bindsym $mod+slash exec bluetoothctl connect 68:59:32:ce:dc:7a
 bindsym $mod+Shift+slash exec bluetoothctl disconnect
+
+bindsym $mod+apostrophe sticky toggle

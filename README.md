@@ -3,5 +3,6 @@
 Install with
 
 ```bash
-stow .
+stow --ignore=system .
+sudo stow -t /etc system
 ```

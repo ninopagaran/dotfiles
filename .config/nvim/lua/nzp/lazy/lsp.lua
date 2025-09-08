@@ -34,7 +34,7 @@ return {
 				"clangd",
 				"ts_ls",
 				-- "denols",
-				"pyright",
+				-- "pyright",
 				"ruff",
 				-- "black",
 				-- "stylua",
