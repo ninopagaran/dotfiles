@@ -18,7 +18,7 @@ source $HOME/.profile
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
 bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^w "tmux attach\ntmux\n"
+bindkey -s ^w "tmux attach || tmux new\n"
 
 # history
 HISTSIZE=10000

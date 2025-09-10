@@ -40,6 +40,7 @@ return {
 				-- "stylua",
 				"tailwindcss",
 				"eslint",
+				"gopls",
 			},
 		})
 
