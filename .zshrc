@@ -8,6 +8,8 @@ if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; th
   export QT_QPA_PLATFORM=wayland
   export XDG_CURRENT_DESKTOP=sway
   export XDG_SESSION_DESKTOP=sway
+
+  export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/home/linuxbrew/.linuxbrew/bin/"
   exec sway
 fi
 

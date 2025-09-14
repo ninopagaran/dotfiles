@@ -8,10 +8,10 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 
 exec nm-applet
 exec flameshot
-exec discord
+exec ELECTRON_OZONE_PLATFORM_HINT= discord
 exec brave --args --app-auto-launched --restore-last-session
 
-assign [app_id="discord"] 9
+assign [class="discord"] 9
 
 ### Variables
 #
@@ -38,6 +38,7 @@ exec_always {
     gsettings set org.gnome.desktop.interface cursor-size "24"
 
     wpctl settings --save bluetooth.autoswitch-to-headset-profile false
+    batt.sh
 }
 
 ### Output configuration
@@ -83,10 +84,6 @@ font pango: Ubuntu Nerd Font 10
     # xkb_layout "my-keyboard"
     # xkb_file "~/.config/xkb/symbols/myk.xkb"
   }
-
-#
-# You can also configure each device individually.
-# Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
 #
@@ -261,4 +258,4 @@ include /etc/sway/config.d/*
 bindsym $mod+slash exec bluetoothctl connect 68:59:32:ce:dc:7a
 bindsym $mod+Shift+slash exec bluetoothctl disconnect
 
-bindsym $mod+apostrophe sticky toggle
+bindsym $mod+apostrophe floating enable, resize set 300 220, move absolute position 1073 550, sticky toggle
