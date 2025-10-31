@@ -4,7 +4,8 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 exec nm-applet
 exec flameshot
 exec ELECTRON_OZONE_PLATFORM_HINT= discord
-exec brave --args --app-auto-launched --restore-last-session
+# exec brave --args --app-auto-launched --restore-last-session
+exec brave
 
 assign [class="discord"] 9
 
@@ -232,10 +233,17 @@ bar {
     status_command sh -c ' \
         echo "["; \
         while true; do \
+            volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk "{print \$2}"); \
+            volume=$(echo "($volume * 100)/1" | bc); \
+            mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk "{print \$2}"); \
             bat_cap=$(cat /sys/class/power_supply/BAT1/capacity); \
             battery_status=$(cat /sys/class/power_supply/BAT1/status); \
             date_str=$(date +"%Y-%m-%d %X"); \
-            echo "${bat_cap}% (${battery_status}) | ${date_str}"; \
+            if [ "$mute" == "no" ]; then \
+              echo "Volume: ${volume}% | ${bat_cap}% (${battery_status}) | ${date_str}"; \
+            else \
+              echo "Volume: MUTED | ${bat_cap}% (${battery_status}) | ${date_str}"; \
+            fi ; \
             sleep 1; \
         done \
     '
@@ -249,5 +257,6 @@ include /etc/sway/config.d/*
 
 bindsym $mod+slash exec bluetoothctl connect 68:59:32:ce:dc:7a
 bindsym $mod+Shift+slash exec bluetoothctl disconnect
+bindsym $mod+period exec makoctl dismiss -a
 
 bindsym $mod+apostrophe floating enable, resize set 300 220, move absolute position 1073 550, sticky toggle
