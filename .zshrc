@@ -81,3 +81,6 @@ zinit wait lucid for \
     bindkey '^s' autosuggest-clear" \
     zsh-users/zsh-autosuggestions
 
+
+# opencode
+export PATH=/home/nino/.opencode/bin:$PATH

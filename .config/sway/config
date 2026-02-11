@@ -259,4 +259,8 @@ bindsym $mod+slash exec bluetoothctl connect 68:59:32:ce:dc:7a
 bindsym $mod+Shift+slash exec bluetoothctl disconnect
 bindsym $mod+period exec makoctl dismiss -a
 
-bindsym $mod+apostrophe floating enable, resize set 300 220, move absolute position 1073 550, sticky toggle
+bindsym $mod+apostrophe floating enable, resize set 300 220, move absolute position 1083 550, sticky toggle
+
+exec noisetorch -i
+exec pactl set-default-source NoiseTorch\ Microphone\ for\ Built-in\ Audio
+
