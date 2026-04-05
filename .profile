@@ -10,6 +10,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH:/home/linuxbrew/.li
 export EDITOR=/home/linuxbrew/.linuxbrew/bin//nvim
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+export ELECTRON_FORCE_DEVICE_SCALE_FACTOR=1.2
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.

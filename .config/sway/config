@@ -1,6 +1,21 @@
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
+exec_always {
+    gsettings set org.gnome.desktop.interface text-scaling-factor 1.2
+    gsettings set org.gnome.desktop.interface document-font-name "Ubuntu Nerd Font 12"
+    gsettings set org.gnome.desktop.interface gtk-theme "prefer-dark"
+    gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+    gsettings set org.gnome.desktop.interface font-name "Ubuntu Nerd Font 12"
+    gsettings set org.gnome.desktop.interface monospace-font-name "JetBrainsMono Nerd Font 12"
+    gsettings set org.gnome.desktop.wm.preferences button-layout ":"
+    gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+    gsettings set org.gnome.desktop.interface cursor-size "24"
+
+    wpctl settings --save bluetooth.autoswitch-to-headset-profile false
+    batt.sh
+}
+
 exec nm-applet
 exec flameshot
 exec ELECTRON_OZONE_PLATFORM_HINT= discord
@@ -19,19 +34,6 @@ set $right l
 set $term ghostty
 set $menu wmenu-run
 
-exec_always {
-    gsettings set org.gnome.desktop.interface document-font-name "Ubuntu Nerd Font 10"
-    gsettings set org.gnome.desktop.interface gtk-theme "prefer-dark"
-    gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-    gsettings set org.gnome.desktop.interface font-name "Ubuntu Nerd Font 10"
-    gsettings set org.gnome.desktop.interface monospace-font-name "JetBrainsMono Nerd Font 10"
-    gsettings set org.gnome.desktop.wm.preferences button-layout ":"
-    gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
-    gsettings set org.gnome.desktop.interface cursor-size "24"
-
-    wpctl settings --save bluetooth.autoswitch-to-headset-profile false
-    batt.sh
-}
 
 ### Output configuration
 #
@@ -44,7 +46,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-font pango: Ubuntu Nerd Font 10
+font pango: Ubuntu Nerd Font 12
 
 ### Idle configuration
 #
@@ -236,8 +238,8 @@ bar {
             volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk "{print \$2}"); \
             volume=$(echo "($volume * 100)/1" | bc); \
             mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk "{print \$2}"); \
-            bat_cap=$(cat /sys/class/power_supply/BAT1/capacity); \
-            battery_status=$(cat /sys/class/power_supply/BAT1/status); \
+            bat_cap=$(cat /sys/class/power_supply/BAT0/capacity); \
+            battery_status=$(cat /sys/class/power_supply/BAT0/status); \
             date_str=$(date +"%Y-%m-%d %X"); \
             if [ "$mute" == "no" ]; then \
               echo "Volume: ${volume}% | ${bat_cap}% (${battery_status}) | ${date_str}"; \

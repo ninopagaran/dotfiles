@@ -8,14 +8,14 @@ if [[ $already_running -gt 1 ]]; then
 fi
 
 while true; do
-    battery_status="$(< /sys/class/power_supply/BAT1/status)"
-    battery_charge="$(< /sys/class/power_supply/BAT1/capacity)"
+    battery_status="$(< /sys/class/power_supply/BAT0/status)"
+    battery_charge="$(< /sys/class/power_supply/BAT0/capacity)"
 
     if [[ $battery_status == 'Discharging' && $battery_charge -le 85 ]]; then
         if   [[ $battery_charge -le 15 ]]; then
             notify-send --urgency=critical "Battery critical!" "${battery_charge}%"
             sleep 180
-        elif [[ $battery_charge -le 30 ]]; then
+        elif [[ $battery_charge -le 35 ]]; then
             notify-send --urgency=critical "Battery low!" "${battery_charge}%"
             sleep 240
         else

@@ -14,6 +14,7 @@ return {
 				},
 				file_ignore_patterns = {
 					"node_modules",
+					"%.git/",
 				},
 				-- Display path without leading './'
 				path_display = function(_, path)
@@ -38,7 +39,10 @@ return {
 		{
 			"<leader>pf",
 			function()
-				require("telescope.builtin").find_files()
+				require("telescope.builtin").find_files({
+					hidden = true,
+					no_ignore = true,
+				})
 			end,
 		},
 		{
