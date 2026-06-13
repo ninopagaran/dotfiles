@@ -12,3 +12,9 @@ window-padding-x = 2,0
 
 mouse-hide-while-typing = true
 
+font-family = JetBrainsMono Nerd Font
+font-family-bold = JetBrainsMono NF ExtraBold
+font-family-italic = JetBrainsMono NF Italic
+font-family-bold-italic = JetBrainsMono NF ExtraBold Italic
+
+font-synthetic-style = true

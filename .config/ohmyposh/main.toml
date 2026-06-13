@@ -13,12 +13,12 @@ final_space = true
   pink = '#ff4499'
 
 [secondary_prompt]
-  template = '❯❯ '
+  template = '<b>❯❯</b> '
   foreground = 'p:blue'
   background = 'transparent'
 
 [transient_prompt]
-  template = '❯ '
+  template = '<b>❯</b> '
   background = 'transparent'
   foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}p:cyan{{end}}']
 
@@ -28,13 +28,13 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '  '
-    foreground = 'p:pink'
+    template = '<b> </b> '
+    foreground = 'p:green'
     type = 'text'
     style = 'plain'
 
   [[blocks.segments]]
-    template = '{{ .Path }} '
+    template = '<b>{{ .Path }}</b> '
     foreground = 'p:blue'
     background = 'transparent'
     type = 'path'
@@ -45,7 +45,7 @@ final_space = true
       style = 'full'
 
   [[blocks.segments]]
-    template = '({{ .HEAD }}) '
+    template = '<b>({{ .HEAD }})</b> '
     foreground = 'p:green'
     type = 'git'
     style = 'plain'
@@ -69,7 +69,7 @@ final_space = true
   # newline = true
 
   [[blocks.segments]]
-    template = '❯'
+    template = '<b>$</b>'
     type = 'text'
     style = 'plain'
     foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}p:yellow{{end}}']
@@ -82,7 +82,7 @@ final_space = true
   overflow = 'hidden'
 
   [[blocks.segments]]
-    template = '{{ .FormattedMs }}'
+    template = '<b>{{ .FormattedMs }}</b>'
     foreground = 'p:closer'
     background = 'transparent'
     type = 'executiontime'

@@ -18,7 +18,7 @@ exec_always {
 
 exec nm-applet
 exec flameshot
-exec ELECTRON_OZONE_PLATFORM_HINT= discord
+exec ELECTRON_OZONE_PLATFORM_HINT= discord --force-device-scale-factor=1.2
 # exec brave --args --app-auto-launched --restore-last-session
 exec brave
 
@@ -66,6 +66,7 @@ font pango: Ubuntu Nerd Font 12
 # Example configuration:
 #
   input type:touchpad {
+      pointer_accel 0.3
       dwt disabled
       tap enabled
       # natural_scroll enabled
@@ -257,11 +258,11 @@ bar {
 
 include /etc/sway/config.d/*
 
-bindsym $mod+slash exec bluetoothctl connect 68:59:32:ce:dc:7a
+bindsym $mod+slash exec bluetoothctl connect E8:26:CF:24:44:5A #68:59:32:ce:dc:7a
 bindsym $mod+Shift+slash exec bluetoothctl disconnect
 bindsym $mod+period exec makoctl dismiss -a
 
-bindsym $mod+apostrophe floating enable, resize set 300 220, move absolute position 1083 550, sticky toggle
+bindsym $mod+apostrophe floating enable, resize set 450 330, move absolute position 1473 703, sticky toggle
 
 exec noisetorch -i
 exec pactl set-default-source NoiseTorch\ Microphone\ for\ Built-in\ Audio
