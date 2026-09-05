@@ -1,5 +1,6 @@
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec_always systemctl --user start sway-session.service
 
 exec_always {
     gsettings set org.gnome.desktop.interface text-scaling-factor 1.2
@@ -22,7 +23,7 @@ exec ELECTRON_OZONE_PLATFORM_HINT= discord --force-device-scale-factor=1.2
 # exec brave --args --app-auto-launched --restore-last-session
 exec brave
 
-assign [class="discord"] 9
+assign [app_id="discord"] 9
 
 ### Variables
 set $mod Mod1
@@ -264,6 +265,7 @@ bindsym $mod+period exec makoctl dismiss -a
 
 bindsym $mod+apostrophe floating enable, resize set 450 330, move absolute position 1473 703, sticky toggle
 
-exec noisetorch -i
+exec noisetorch -i alsa_input.pci-0000_07_00.6.HiFi__Mic2__source
 exec pactl set-default-source NoiseTorch\ Microphone\ for\ Built-in\ Audio
 
+bindsym Ctrl+Shift+Escape exec /home/nino/personal/projects/swaypilot/sway-dev-automation.sh --stop

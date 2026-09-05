@@ -64,7 +64,7 @@ autocmd("LspAttach", {
 			return
 		end
 
-		if c.supports_method("textDocument/formatting") then
+		if c:supports_method("textDocument/formatting") then
 			-- if vim.bo.filetype == "lua" then
 			-- Format the current buffer on save
 			vim.api.nvim_create_autocmd("BufWritePre", {
