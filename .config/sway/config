@@ -20,10 +20,11 @@ exec_always {
 exec nm-applet
 exec flameshot
 exec ELECTRON_OZONE_PLATFORM_HINT= discord --force-device-scale-factor=1.2
-# exec brave --args --app-auto-launched --restore-last-session
-exec brave
+exec brave --app-auto-launched --restore-last-session
+exec ~/.config/sway/noisetorch-start.sh
 
 assign [app_id="discord"] 9
+assign [app_id="Windscribe"] 6
 
 ### Variables
 set $mod Mod1
@@ -234,23 +235,7 @@ client.focused       #77dd77 #285577 #ffffff #2e9ef4 #285577
 bar {
     position top
     mode hide
-    status_command sh -c ' \
-        echo "["; \
-        while true; do \
-            volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk "{print \$2}"); \
-            volume=$(echo "($volume * 100)/1" | bc); \
-            mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk "{print \$2}"); \
-            bat_cap=$(cat /sys/class/power_supply/BAT0/capacity); \
-            battery_status=$(cat /sys/class/power_supply/BAT0/status); \
-            date_str=$(date +"%Y-%m-%d %X"); \
-            if [ "$mute" == "no" ]; then \
-              echo "Volume: ${volume}% | ${bat_cap}% (${battery_status}) | ${date_str}"; \
-            else \
-              echo "Volume: MUTED | ${bat_cap}% (${battery_status}) | ${date_str}"; \
-            fi ; \
-            sleep 1; \
-        done \
-    '
+    status_command ~/.config/sway/status.sh
     colors {
         statusline #ffffff
         background #323232
@@ -265,7 +250,6 @@ bindsym $mod+period exec makoctl dismiss -a
 
 bindsym $mod+apostrophe floating enable, resize set 450 330, move absolute position 1473 703, sticky toggle
 
-exec noisetorch -i alsa_input.pci-0000_07_00.6.HiFi__Mic2__source
-exec pactl set-default-source NoiseTorch\ Microphone\ for\ Built-in\ Audio
+exec windscribe-cli connect && windscribe-cli status
 
 bindsym Ctrl+Shift+Escape exec /home/nino/personal/projects/swaypilot/sway-dev-automation.sh --stop
