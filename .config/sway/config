@@ -1,3 +1,4 @@
+exec ~/.config/sway/noisetorch-start.sh
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec_always systemctl --user start sway-session.service
@@ -20,8 +21,6 @@ exec_always {
 exec nm-applet
 exec flameshot
 exec ELECTRON_OZONE_PLATFORM_HINT= discord --force-device-scale-factor=1.2
-exec brave --app-auto-launched --restore-last-session
-exec ~/.config/sway/noisetorch-start.sh
 
 assign [app_id="discord"] 9
 assign [app_id="Windscribe"] 6
@@ -251,5 +250,6 @@ bindsym $mod+period exec makoctl dismiss -a
 bindsym $mod+apostrophe floating enable, resize set 450 330, move absolute position 1473 703, sticky toggle
 
 exec windscribe-cli connect && windscribe-cli status
+exec brave --restore-last-session
 
 bindsym Ctrl+Shift+Escape exec /home/nino/personal/projects/swaypilot/sway-dev-automation.sh --stop

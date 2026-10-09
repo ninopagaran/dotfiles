@@ -1,0 +1,17 @@
+# ~/.config/systemd/user/noisetorch.service
+
+[Unit]
+Description=NoiseTorch Noise Suppression
+After=pipewire.service pipewire-pulse.service wireplumber.service
+Wants=pipewire.service pipewire-pulse.service wireplumber.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/sway/noisetorch-start.sh
+ExecStop=/usr/bin/noisetorch -u
+RemainAfterExit=yes
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

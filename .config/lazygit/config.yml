@@ -1,0 +1,5 @@
+gui:
+  scrollHeight: 8
+  scrollPastBottom: false
+  scrollOffBehavior: jump
+  scrollOffMargin: 0
